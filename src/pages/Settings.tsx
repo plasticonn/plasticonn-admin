@@ -7,7 +7,7 @@ import { useAuthStore } from "../utils/useAuthStore";
 import Profile_details from "../components/settings/Profile_details";
 
 const Settings = () => {
-  const { user } = useAuthStore.getState();
+  const { user } = useAuthStore();
 
   return (
     <Pages page="Settings" helperText="View and manage your profile">

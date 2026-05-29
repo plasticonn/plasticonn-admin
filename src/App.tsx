@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import "nprogress/nprogress.css";
+import api from "./utils/axiosInstance";
+import { useAuthStore } from "./utils/useAuthStore";
 
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const Analytics = React.lazy(() => import("./pages/Analytics"));
@@ -14,16 +16,15 @@ const ForgotPassword = React.lazy(() => import("./pages/auth/ForgotPassword"));
 const Website = React.lazy(() => import("./pages/Website"));
 
 function App() {
-  // const authLoading = useAuthStore((state) => state.authLoading);
-  // const setUser = useAuthStore((state) => state.setUser);
-  // const clearUser = useAuthStore((state) => state.clearUser);
+  const setUser = useAuthStore((state) => state.setUser);
+  const clearUser = useAuthStore((state) => state.clearUser);
 
-  // useEffect(() => {
-  //   api
-  //     .get(`/api/admin/profile`)
-  //     .then((res) => setUser(res.data.data.admin))
-  //     .catch(() => clearUser());
-  // }, []);
+  useEffect(() => {
+    api
+      .get(`/api/admin/profile`)
+      .then((res) => setUser(res.data.data.admin))
+      .catch(() => clearUser());
+  }, []);
 
   // usePageLoader();
 

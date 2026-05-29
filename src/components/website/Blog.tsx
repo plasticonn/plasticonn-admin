@@ -14,7 +14,6 @@ import {
   MenuItem,
   Select,
   FormControl,
-  InputLabel,
   IconButton,
   CircularProgress,
 } from "@mui/material";
@@ -262,40 +261,42 @@ const Blog = () => {
       </div>
 
       {/* table */}
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Title</TableCell>
-            <TableCell>By</TableCell>
-            <TableCell>Status</TableCell>
-            <TableCell>Time</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {blogs.map((blog) => (
-            <TableRow
-              key={blog.id}
-              onClick={() => {
-                setSelected(blog);
-                setOpen(true);
-              }}
-              className="cursor-pointer"
-            >
-              <TableCell>{blog.title}</TableCell>
-              <TableCell>{blog.author?.name ?? blog.author}</TableCell>
-              <TableCell>
-                <Chip
-                  label={blog.status}
-                  color={blog.status === "published" ? "success" : "warning"}
-                />
-              </TableCell>
-              <TableCell>
-                <DayAndTime date={blog.createdAt} />
-              </TableCell>
+      <div className="max-h-125 overflow-y-auto">
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Title</TableCell>
+              <TableCell>By</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell>Time</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {blogs.map((blog) => (
+              <TableRow
+                key={blog.id}
+                onClick={() => {
+                  setSelected(blog);
+                  setOpen(true);
+                }}
+                className="cursor-pointer"
+              >
+                <TableCell>{blog.title}</TableCell>
+                <TableCell>{blog.author?.name ?? blog.author}</TableCell>
+                <TableCell>
+                  <Chip
+                    label={blog.status}
+                    color={blog.status === "published" ? "success" : "warning"}
+                  />
+                </TableCell>
+                <TableCell>
+                  <DayAndTime date={blog.createdAt} />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
 
       {/* ── DETAILS MODAL ─────────────────────────────────────────────── */}
       <Dialog

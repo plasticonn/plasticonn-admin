@@ -19,7 +19,7 @@ const Edit_Profile = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const { user, setUser } = useAuthStore.getState();
+  const { user, setUser } = useAuthStore();
 
   const [update, setUpdate] = useState({
     name: user?.name,
@@ -46,11 +46,7 @@ const Edit_Profile = () => {
 
       setUser(response.data.data.admin);
 
-      showToast(
-        "Profile updated. Login for changes to reflect",
-        "success",
-        "/",
-      );
+      showToast("Profile updated.", "success");
     } catch (error: any) {
       const errMsg = error?.response?.data?.message;
       console.log(errMsg);

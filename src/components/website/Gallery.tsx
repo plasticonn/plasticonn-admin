@@ -123,30 +123,31 @@ const Gallery = () => {
         </Button>
       </div>
 
-      {Object.keys(grouped).map((eventName) => (
-        <div key={eventName} className="mt-6">
-          <Typography variant="h6">{eventName}</Typography>
+      <div className="max-h-100 overflow-y-auto">
+        {Object.keys(grouped).map((eventName) => (
+          <div key={eventName} className="mt-6">
+            <Typography variant="h6">{eventName}</Typography>
 
-          <div className="grid grid-cols-4 gap-3">
-            {grouped[eventName].map((photo: Gallery) => (
-              <div key={photo._id} className="relative group">
-                <img
-                  src={photo.image.url}
-                  className="rounded-lg w-full h-32 object-cover"
-                />
+            <div className="grid grid-cols-4 gap-3">
+              {grouped[eventName].map((photo: Gallery) => (
+                <div key={photo._id} className="relative group">
+                  <img
+                    src={photo.image.url}
+                    className="rounded-lg w-full h-32 object-cover"
+                  />
 
-                <button
-                  onClick={() => deletePhoto(photo._id)}
-                  className="absolute top-2 right-2 hidden group-hover:block bg-red-500 text-white p-1 rounded"
-                >
-                  <MdDelete />
-                </button>
-              </div>
-            ))}
+                  <button
+                    onClick={() => deletePhoto(photo._id)}
+                    className="absolute top-2 right-2 hidden group-hover:block bg-red-500 text-white p-1 rounded"
+                  >
+                    <MdDelete />
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
-
+        ))}
+      </div>
       {/* Upload Modal */}
       <Dialog
         open={open}
