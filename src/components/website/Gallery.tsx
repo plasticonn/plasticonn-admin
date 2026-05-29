@@ -5,6 +5,7 @@ import {
   DialogContent,
   DialogTitle,
   TextField,
+  CircularProgress,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import api from "../../utils/axiosInstance";
@@ -301,7 +302,11 @@ const Gallery = () => {
                 padding: "10px",
               }}
             >
-              {loading ? "Adding photos..." : "Add Photos"}
+              {loading ? (
+                <CircularProgress size={20} sx={{ color: "#fff" }} />
+              ) : (
+                "Add Photos"
+              )}
             </Button>
           </div>
         </DialogContent>

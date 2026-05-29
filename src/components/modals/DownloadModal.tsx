@@ -6,6 +6,7 @@ import {
   Button,
   Typography,
   TextField,
+  CircularProgress,
 } from "@mui/material";
 import { useState } from "react";
 import api from "../../utils/axiosInstance";
@@ -183,7 +184,11 @@ export const DownloadModal = ({ open, onClose }: DownloadModalProps) => {
             fontSize={16}
             sx={{ textTransform: "capitalize" }}
           >
-            {loading ? "Downloading..." : "Download"}
+            {loading ? (
+              <CircularProgress size={20} sx={{ color: "#fff" }} />
+            ) : (
+              "Download"
+            )}
           </Typography>
         </Button>
       </DialogActions>

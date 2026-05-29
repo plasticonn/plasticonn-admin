@@ -4,6 +4,7 @@ import {
   Dialog,
   DialogContent,
   TextField,
+  CircularProgress,
 } from "@mui/material";
 import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
@@ -29,7 +30,7 @@ const Edit_Profile = () => {
   const { toast, showToast, closeToast } = useToast();
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setUpdate((prev) => ({ ...prev, [name]: value }));
@@ -48,7 +49,7 @@ const Edit_Profile = () => {
       showToast(
         "Profile updated. Login for changes to reflect",
         "success",
-        "/"
+        "/",
       );
     } catch (error: any) {
       const errMsg = error?.response?.data?.message;
@@ -305,7 +306,11 @@ const Edit_Profile = () => {
                 fontSize={16}
                 sx={{ textTransform: "capitalize" }}
               >
-                {loading ? "Saving..." : "Save Changes"}
+                {loading ? (
+                  <CircularProgress size={20} sx={{ color: "#fff" }} />
+                ) : (
+                  "Save Changes"
+                )}
               </Typography>
             </Button>
 

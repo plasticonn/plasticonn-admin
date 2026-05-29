@@ -5,6 +5,7 @@ import {
   DialogContent,
   TextField,
   MenuItem,
+  CircularProgress,
 } from "@mui/material";
 import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
@@ -265,7 +266,11 @@ const Broadcast = () => {
                 fontSize={16}
                 sx={{ textTransform: "capitalize" }}
               >
-                {loading ? "Sending..." : "Send Broadcast"}
+                {loading ? (
+                  <CircularProgress size={20} sx={{ color: "#fff" }} />
+                ) : (
+                  "Send Broadcast"
+                )}
               </Typography>
             </Button>
 

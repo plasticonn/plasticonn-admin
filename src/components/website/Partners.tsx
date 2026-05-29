@@ -5,6 +5,7 @@ import {
   Button,
   DialogTitle,
   TextField,
+  CircularProgress,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import api from "../../utils/axiosInstance";
@@ -247,7 +248,11 @@ const Partners = () => {
                 padding: "10px",
               }}
             >
-              {loading ? "Adding partner..." : "Add Parnter"}
+              {loading ? (
+                <CircularProgress size={20} sx={{ color: "#fff" }} />
+              ) : (
+                "Add Parnter"
+              )}
             </Button>
           </div>
         </DialogContent>

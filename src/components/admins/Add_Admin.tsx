@@ -5,6 +5,7 @@ import {
   DialogContent,
   TextField,
   MenuItem,
+  CircularProgress,
 } from "@mui/material";
 import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
@@ -143,7 +144,7 @@ const Add_Admin = ({ onSuccess }: { onSuccess: () => void }) => {
               Last Name
             </Typography>
             <TextField
-              name="name"
+              name="lastName"
               value={adminDetails.lastName}
               onChange={handleChange}
               variant="outlined"
@@ -183,7 +184,7 @@ const Add_Admin = ({ onSuccess }: { onSuccess: () => void }) => {
               First Name
             </Typography>
             <TextField
-              name="name"
+              name="firstName"
               value={adminDetails.firstName}
               onChange={handleChange}
               variant="outlined"
@@ -263,7 +264,7 @@ const Add_Admin = ({ onSuccess }: { onSuccess: () => void }) => {
               Address
             </Typography>
             <TextField
-              name="email"
+              name="address"
               value={adminDetails.address}
               onChange={handleChange}
               variant="outlined"
@@ -373,7 +374,11 @@ const Add_Admin = ({ onSuccess }: { onSuccess: () => void }) => {
                 fontSize={16}
                 sx={{ textTransform: "capitalize" }}
               >
-                Add Admin
+                {loading ? (
+                  <CircularProgress size={20} sx={{ color: "#fff" }} />
+                ) : (
+                  "Add Admin"
+                )}
               </Typography>
             </Button>
 

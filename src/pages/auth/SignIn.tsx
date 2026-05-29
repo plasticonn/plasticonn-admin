@@ -1,6 +1,7 @@
 import {
   Button,
   Checkbox,
+  CircularProgress,
   InputAdornment,
   TextField,
   Typography,
@@ -264,7 +265,11 @@ const SignIn = () => {
               fontSize={16}
               sx={{ textTransform: "capitalize" }}
             >
-              Sign In
+              {loading ? (
+                <CircularProgress size={20} sx={{ color: "#fff" }} />
+              ) : (
+                "Sign In"
+              )}
             </Typography>
           </Button>
         </div>

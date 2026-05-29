@@ -4,6 +4,7 @@ import {
   Typography,
   Button,
   Tooltip,
+  CircularProgress,
 } from "@mui/material";
 import React, { useState } from "react";
 import { useToast } from "../../utils/useToast";
@@ -130,7 +131,11 @@ const BanUser: React.FC<Ban> = ({ action, user, _id, refresh }) => {
                   fontSize={16}
                   sx={{ textTransform: "capitalize" }}
                 >
-                  {loading ? "Confirming..." : "Confirm Action"}
+                  {loading ? (
+                    <CircularProgress size={20} sx={{ color: "#fff" }} />
+                  ) : (
+                    "Confirm Action"
+                  )}
                 </Typography>
               </Button>
 

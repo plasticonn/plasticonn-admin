@@ -4,6 +4,7 @@ import {
   Dialog,
   DialogContent,
   TextField,
+  CircularProgress,
 } from "@mui/material";
 import { useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
@@ -345,7 +346,11 @@ const Change_Password = () => {
                 fontSize={16}
                 sx={{ textTransform: "capitalize" }}
               >
-                {update ? "Update Password" : "Send OTP"}
+                {update ? (
+                  <CircularProgress size={20} sx={{ color: "#fff" }} />
+                ) : (
+                  "Send OTP"
+                )}
               </Typography>
             </Button>
 

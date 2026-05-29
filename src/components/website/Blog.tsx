@@ -16,6 +16,7 @@ import {
   FormControl,
   InputLabel,
   IconButton,
+  CircularProgress,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import api from "../../utils/axiosInstance";
@@ -438,7 +439,11 @@ const Blog = () => {
                 padding: "10px",
               }}
             >
-              {loading ? "Deleting..." : "Delete blog"}
+              {loading ? (
+                <CircularProgress size={20} sx={{ color: "#fff" }} />
+              ) : (
+                "Delete blog"
+              )}
             </Button>
           </div>
         </DialogContent>
@@ -690,7 +695,11 @@ const Blog = () => {
                 padding: "10px",
               }}
             >
-              {loading ? "Adding Blog..." : "Add blog"}
+              {loading ? (
+                <CircularProgress size={20} sx={{ color: "#fff" }} />
+              ) : (
+                "Add blog"
+              )}
             </Button>
           </div>
         </DialogContent>

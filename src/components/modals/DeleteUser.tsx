@@ -4,6 +4,7 @@ import {
   Typography,
   Button,
   Tooltip,
+  CircularProgress,
 } from "@mui/material";
 import { useState } from "react";
 import { useToast } from "../../utils/useToast";
@@ -110,7 +111,11 @@ const DeleteUser: React.FC<Delete> = ({ user, _id, refresh }) => {
                   fontSize={16}
                   sx={{ textTransform: "capitalize" }}
                 >
-                  {loading ? "Deleting..." : "Confirm Action"}
+                  {loading ? (
+                    <CircularProgress size={20} sx={{ color: "#fff" }} />
+                  ) : (
+                    "Confirm Action"
+                  )}
                 </Typography>
               </Button>
 

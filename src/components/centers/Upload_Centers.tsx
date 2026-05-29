@@ -1,4 +1,11 @@
-import { Box, Button, Dialog, DialogContent, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Dialog,
+  DialogContent,
+  Typography,
+} from "@mui/material";
 import { useRef, useState, type DragEvent } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { useToast } from "../../utils/useToast";
@@ -62,7 +69,7 @@ const Upload_Centers = ({ onSuccess }: { onSuccess: () => void }) => {
       if (response.data.status === 201) {
         showToast(
           `${response.data.data.inserted} Centers Added Successfully`,
-          "success"
+          "success",
         );
 
         setFile(null);
@@ -223,7 +230,11 @@ const Upload_Centers = ({ onSuccess }: { onSuccess: () => void }) => {
                   fontSize={16}
                   sx={{ textTransform: "capitalize" }}
                 >
-                  {loading ? "Uploading..." : "Upload Centers"}
+                  {loading ? (
+                    <CircularProgress size={20} sx={{ color: "#fff" }} />
+                  ) : (
+                    "Upload Centers"
+                  )}
                 </Typography>
               </Button>
 

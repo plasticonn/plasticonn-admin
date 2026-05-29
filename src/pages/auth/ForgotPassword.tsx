@@ -1,4 +1,10 @@
-import { Button, InputAdornment, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  CircularProgress,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useToast } from "../../utils/useToast";
 import Toast from "../../utils/Toast";
 import { useState } from "react";
@@ -340,7 +346,15 @@ const ForgotPassword = () => {
               fontSize={16}
               sx={{ textTransform: "capitalize" }}
             >
-              {step1 ? "Verify OTP" : step2 ? "Reset Password" : "Send OTP"}
+              {step1 ? (
+                "Verify OTP"
+              ) : step2 ? (
+                "Reset Password"
+              ) : loading ? (
+                <CircularProgress size={20} sx={{ color: "#fff" }} />
+              ) : (
+                "Send OTP"
+              )}
             </Typography>
           </Button>
         </div>
