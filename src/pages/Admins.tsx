@@ -21,7 +21,8 @@ import DeleteUser from "../components/modals/DeleteUser";
 
 interface Admins {
   _id: string;
-  name: string;
+  firstname: string;
+  lastname: string;
   email: string;
   phone: string;
   role: string;
@@ -208,7 +209,9 @@ const Admins = () => {
                         backgroundColor: "#FAFAFA",
                       }}
                     >
-                      <TableCell sx={{ px: 4 }}>{row.name}</TableCell>
+                      <TableCell sx={{ px: 4 }}>
+                        {row.firstname} {row.lastname}
+                      </TableCell>
 
                       <TableCell sx={{ px: 4 }}>
                         <Typography
