@@ -78,7 +78,8 @@ const Admins = () => {
 
   const filteredRows = admins.filter((row) => {
     const matchesSearch =
-      row.name.toLowerCase().includes(search.toLowerCase()) ||
+      row.firstname.toLowerCase().includes(search.toLowerCase()) ||
+      row.lastname.toLowerCase().includes(search.toLowerCase()) ||
       row.email.toLowerCase().includes(search.toLowerCase());
 
     return matchesSearch;
@@ -86,7 +87,7 @@ const Admins = () => {
 
   const paginatedRows = filteredRows.slice(
     page * rowsPerPage,
-    page * rowsPerPage + rowsPerPage
+    page * rowsPerPage + rowsPerPage,
   );
 
   const handleChangePage = (_: unknown, newPage: number) => {
@@ -94,7 +95,7 @@ const Admins = () => {
   };
 
   const handleChangeRowsPerPage = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
