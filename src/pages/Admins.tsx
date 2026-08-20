@@ -53,6 +53,8 @@ const Admins = () => {
 
   const head = ["Name", "Email", "Role", "Status", "Actions"];
 
+  console.log(admins);
+
   // const rows = [
   //   {
   //     name: "John Doe",
