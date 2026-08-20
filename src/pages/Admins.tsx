@@ -78,10 +78,12 @@ const Admins = () => {
   // ];
 
   const filteredRows = admins.filter((row) => {
+    const query = search.toLowerCase();
+
     const matchesSearch =
-      row.firstname.toLowerCase().includes(search.toLowerCase()) ||
-      row.lastname.toLowerCase().includes(search.toLowerCase()) ||
-      row.email.toLowerCase().includes(search.toLowerCase());
+      (row.firstname ?? "").toLowerCase().includes(query) ||
+      (row.lastname ?? "").toLowerCase().includes(query) ||
+      (row.email ?? "").toLowerCase().includes(query);
 
     return matchesSearch;
   });
