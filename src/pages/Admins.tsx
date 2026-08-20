@@ -21,8 +21,8 @@ import DeleteUser from "../components/modals/DeleteUser";
 
 interface Admins {
   _id: string;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   role: string;
@@ -83,8 +83,8 @@ const Admins = () => {
     const query = search.toLowerCase();
 
     const matchesSearch =
-      (row.firstname ?? "").toLowerCase().includes(query) ||
-      (row.lastname ?? "").toLowerCase().includes(query) ||
+      (row.firstName ?? "").toLowerCase().includes(query) ||
+      (row.lastName ?? "").toLowerCase().includes(query) ||
       (row.email ?? "").toLowerCase().includes(query);
 
     return matchesSearch;
@@ -214,7 +214,7 @@ const Admins = () => {
                       }}
                     >
                       <TableCell sx={{ px: 4 }}>
-                        {row.firstname} {row.lastname}
+                        {row.firstName} {row.lastName}
                       </TableCell>
 
                       <TableCell sx={{ px: 4 }}>
